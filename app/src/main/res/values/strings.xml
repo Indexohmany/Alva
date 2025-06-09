@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Alva</string>
+
+    <!-- Navigation Titles -->
+    <string name="title_home">Home</string>
+    <string name="title_camera">Camera</string>
+    <string name="title_ai_assistant">AI Assistant</string>
+    <string name="title_profile">Profile</string>
+
+    <!-- Home Screen -->
+    <string name="todays_calories">Today\'s Calories</string>
+    <string name="calories_remaining">%d calories remaining</string>
+    <string name="calories_over_limit">%d calories over limit</string>
+    <string name="quick_add">Quick Add</string>
+    <string name="add_food_manually">Add food manually</string>
+    <string name="todays_food_log">Today\'s Food Log</string>
+    <string name="view_history">View history</string>
+    <string name="no_food_entries">No food entries yet.\nTap + to add your first meal!</string>
+
+    <!-- Camera Screen -->
+    <string name="camera_instructions">Point camera at food to recognize calories\nor at barcode to scan product</string>
+    <string name="capture_food_photo">Capture food photo</string>
+    <string name="scan_barcode">Scan barcode</string>
+    <string name="toggle_flash">Toggle flash</string>
+    <string name="switch_camera">Switch camera</string>
+    <string name="scanning_barcodes">Scanning for barcodes...</string>
+    <string name="food_recognized">Food Recognized!</string>
+    <string name="product_found">Product Found!</string>
+    <string name="camera_permission_required">Camera permission is required</string>
+    <string name="photo_capture_failed">Photo capture failed</string>
+
+    <!-- AI Assistant Screen -->
+    <string name="ai_nutrition_assistant">AI Nutrition Assistant</string>
+    <string name="ask_nutrition_question">Ask me about nutrition...</string>
+    <string name="send_message">Send message</string>
+    <string name="suggest_diet">Suggest Diet</string>
+    <string name="analyze_progress">Analyze Progress</string>
+    <string name="healthy_recipes">Healthy Recipes</string>
+    <string name="nutrition_tips">Nutrition Tips</string>
+
+    <!-- Profile Screen -->
+    <string name="personal_information">Personal Information</string>
+    <string name="goals_and_settings">Goals &amp; Settings</string>
+    <string name="daily_calorie_goal">Daily Calorie Goal</string>
+    <string name="activity_level">Activity Level</string>
+    <string name="this_week">This Week</string>
+    <string name="this_month">This Month</string>
+    <string name="settings">Settings</string>
+    <string name="notifications">Notifications</string>
+    <string name="export_data">Export Data</string>
+    <string name="about_alva">About Alva</string>
+    <string name="logout">Logout</string>
+    <string name="save_changes">Save Changes</string>
+    <string name="change">Change</string>
+
+    <!-- Form Fields -->
+    <string name="name">Name</string>
+    <string name="email">Email</string>
+    <string name="age">Age</string>
+    <string name="height_cm">Height (cm)</string>
+    <string name="weight_kg">Weight (kg)</string>
+    <string name="food_name">Food Name</string>
+    <string name="calories">Calories</string>
+    <string name="estimated_calories">Estimated Calories</string>
+    <string name="calories_per_serving">Calories per serving</string>
+
+    <!-- Units -->
+    <string name="cal">cal</string>
+    <string name="cal_day">cal/day</string>
+    <string name="years">years</string>
+    <string name="cm">cm</string>
+    <string name="kg">kg</string>
+    <string name="days">days</string>
+
+    <!-- Activity Levels -->
+    <string name="sedentary">Sedentary</string>
+    <string name="light">Light</string>
+    <string name="moderate">Moderate</string>
+    <string name="active">Active</string>
+    <string name="very_active">Very Active</string>
+
+    <!-- Messages -->
+    <string name="profile_updated">Profile updated successfully</string>
+    <string name="profile_picture_updated">Profile picture updated</string>
+    <string name="calorie_goal_updated">Calorie goal updated to %d</string>
+    <string name="data_exported">Data exported successfully</string>
+    <string name="logged_out">Logged out successfully</string>
+    <string name="added_to_log">Added %s to your log</string>
+
+    <!-- Errors -->
+    <string name="failed_to_load_profile">Failed to load profile data</string>
+    <string name="failed_to_update_profile">Failed to update profile</string>
+    <string name="failed_to_update_profile_picture">Failed to update profile picture</string>
+    <string name="failed_to_update_calorie_goal">Failed to update calorie goal</string>
+    <string name="failed_to_export_data">Failed to export data</string>
+    <string name="failed_to_start_camera">Failed to start camera</string>
+    <string name="could_not_recognize_food">Could not recognize food. Please try again or add manually.</string>
+    <string name="product_not_found">Product not found. Please add manually.</string>
+    <string name="name_required">Name is required</string>
+    <string name="valid_email_required">Valid email is required</string>
+    <string name="enter_valid_age">Enter a valid age</string>
+    <string name="enter_valid_height">Enter a valid height</string>
+    <string name="enter_valid_weight">Enter a valid weight</string>
+    <string name="enter_valid_calories">Please enter valid calories</string>
+    <string name="fill_all_fields">Please fill all fields</string>
+
+    <!-- Dialogs -->
+    <string name="add_food_manually_title">Add Food Manually</string>
+    <string name="quick_add_common_foods">Quick Add Common Foods</string>
+    <string name="recognition_confidence_high">Recognition confidence: High</string>
+    <string name="product_information">Product Information</string>
+    <string name="edit_food_calories_hint">You can edit the food name and calories before adding to your log.</string>
+    <string name="adjust_calories_hint">Adjust the calories if needed before adding to your log.</string>
+    <string name="add_to_log">Add to Log</string>
+    <string name="cancel">Cancel</string>
+    <string name="add">Add</string>
+    <string name="delete">Delete</string>
+
+    <!-- Content Descriptions -->
+    <string name="profile_picture">Profile picture</string>
+    <string name="delete_food_entry">Delete food entry</string>
+    <string name="edit_activity_level">Edit activity level</string>
+    <string name="open_notifications_settings">Open notifications settings</string>
+    <string name="export_user_data">Export user data</string>
+    <string name="about_app">About app</string>
+    <string name="logout_user">Logout</string>
+</resources>

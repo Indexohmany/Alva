@@ -1,0 +1,55 @@
+*.iml
+.gradle
+/local.properties
+/.idea/caches
+/.idea/libraries
+/.idea/modules.xml
+/.idea/workspace.xml
+/.idea/navEditor.xml
+/.idea/assetWizardSettings.xml
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+.cxx
+local.properties
+
+# Gradle files
+.gradle/
+build/
+*/build/
+!gradle-wrapper.jar
+
+# Local config
+local.properties
+
+# IDE files
+.idea/
+*.iml
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Log files
+*.log
+
+# Kotlin
+*.class
+*.kt~ 
+
+# Sign-in keys (NEVER push keystore files!)
+*.jks
+*.keystore
+
+# APKs
+*.apk
+*.ap_
+
+# Crashlytics or Firebase
+crashlytics-build.properties
+fabric.properties
+
+# Jetpack Compose previews
+.idea/usage.statistics.xml
+

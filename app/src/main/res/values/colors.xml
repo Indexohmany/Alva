@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Light mode theme-->
+<resources>
+    <!-- Primary Colors -->
+    <color name="primary_color">#FF6200EE</color>
+    <color name="primary_dark">#1B5E20</color>
+    <color name="primary_light">#4CAF50</color>
+    <color name="primary_variant">#FF3700B3</color>
+
+    <!-- Secondary Colors -->
+    <color name="secondary_color">#FF03DAC5</color>
+    <color name="secondary_dark">#F57C00</color>
+    <color name="secondary_light">#FFB74D</color>
+    <color name="secondary_variant">#FF018786</color>
+
+    <!-- Accent Colors -->
+    <color name="accent_color">#FF6200EE</color>
+    <color name="accent_light">#81C784</color>
+
+    <!-- Text Colors - ADAPTIVE -->
+    <color name="primary_text">#DE000000</color>
+    <color name="secondary_text">#99000000</color>
+    <color name="text_on_primary">#FFFFFF</color>
+    <color name="text_hint">#61000000</color>
+
+    <!-- Background Colors - ADAPTIVE -->
+    <color name="background_color">#FAFAFA</color>
+    <color name="surface_color">#FFFFFFFF</color>
+    <color name="chat_background">#F5F5F5</color>
+    <color name="chat_message_background">#E8F5E8</color>
+    <color name="background">#FFFFFFFF</color>
+    <color name="surface">#FFFFFFFF</color>
+
+    <!-- Chat Message Colors - LIGHT THEME -->
+    <color name="chat_message_user_background">#E3F2FD</color>
+    <color name="chat_message_user_text">#1565C0</color>
+    <color name="chat_message_ai_background">#F5F5F5</color>
+    <color name="chat_message_ai_text">#424242</color>
+
+    <!-- Divider and Border Colors - ADAPTIVE -->
+    <color name="divider_color">#E0E0E0</color>
+    <color name="border_color">#BDBDBD</color>
+
+    <!-- Status Colors -->
+    <color name="success_color">#4CAF50</color>
+    <color name="warning_color">#FF9800</color>
+    <color name="error_color">#FFB00020</color>
+    <color name="error">#FFB00020</color>
+    <color name="info_color">#2196F3</color>
+
+    <!-- Overlay Colors -->
+    <color name="overlay_dark">#80000000</color>
+    <color name="overlay_light">#40FFFFFF</color>
+
+    <!-- Material Design Colors -->
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+</resources>
