@@ -7,7 +7,10 @@ import com.example.alva.data.database.mappers.toModel
 import com.example.alva.data.models.FoodEntry
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import java.util.*
+import kotlin.math.roundToInt
 
 class CalorieRepository(context: Context) {
 
@@ -72,68 +75,139 @@ class CalorieRepository(context: Context) {
         return foodEntryDao.getFoodEntriesSince(cutoffDate).map { it.toModel() }
     }
 
-    suspend fun getWeeklyCalories(): List<Int> {
-        val weekCalories = mutableListOf<Int>()
-        val calendar = Calendar.getInstance()
+    /**
+     * Get calorie data for the last 7 days (including today)
+     * Returns list of 7 integers representing daily calorie totals
+     */
+    suspend fun getWeeklyCalories(): List<Int> = withContext(Dispatchers.IO) {
+        try {
+            val weekCalories = mutableListOf<Int>()
+            val calendar = Calendar.getInstance()
 
-        // Get last 7 days
-        for (i in 6 downTo 0) {
-            calendar.time = Date()
-            calendar.add(Calendar.DAY_OF_MONTH, -i)
+            // Get last 7 days including today
+            for (i in 6 downTo 0) {
+                calendar.time = Date()
+                calendar.add(Calendar.DAY_OF_MONTH, -i)
 
-            val startOfDay = Calendar.getInstance().apply {
-                time = calendar.time
-                set(Calendar.HOUR_OF_DAY, 0)
-                set(Calendar.MINUTE, 0)
-                set(Calendar.SECOND, 0)
-                set(Calendar.MILLISECOND, 0)
-            }.time
+                val startOfDay = Calendar.getInstance().apply {
+                    time = calendar.time
+                    set(Calendar.HOUR_OF_DAY, 0)
+                    set(Calendar.MINUTE, 0)
+                    set(Calendar.SECOND, 0)
+                    set(Calendar.MILLISECOND, 0)
+                }.time
 
-            val endOfDay = Calendar.getInstance().apply {
-                time = calendar.time
-                set(Calendar.HOUR_OF_DAY, 23)
-                set(Calendar.MINUTE, 59)
-                set(Calendar.SECOND, 59)
-                set(Calendar.MILLISECOND, 999)
-            }.time
+                val endOfDay = Calendar.getInstance().apply {
+                    time = calendar.time
+                    set(Calendar.HOUR_OF_DAY, 23)
+                    set(Calendar.MINUTE, 59)
+                    set(Calendar.SECOND, 59)
+                    set(Calendar.MILLISECOND, 999)
+                }.time
 
-            val dayCalories = foodEntryDao.getTotalCaloriesForDateRange(startOfDay, endOfDay) ?: 0
-            weekCalories.add(dayCalories)
+                val dayCalories = try {
+                    foodEntryDao.getTotalCaloriesForDateRange(startOfDay, endOfDay) ?: 0
+                } catch (e: Exception) {
+                    0
+                }
+                weekCalories.add(dayCalories)
+            }
+
+            return@withContext weekCalories
+        } catch (e: Exception) {
+            // Return list of zeros if there's an error
+            return@withContext List(7) { 0 }
         }
-
-        return weekCalories
     }
 
-    suspend fun getMonthlyCalories(): List<Int> {
-        val monthCalories = mutableListOf<Int>()
-        val calendar = Calendar.getInstance()
+    /**
+     * Get calorie data for the last 30 days
+     * Returns list of integers representing daily calorie totals
+     */
+    suspend fun getMonthlyCalories(): List<Int> = withContext(Dispatchers.IO) {
+        try {
+            val monthCalories = mutableListOf<Int>()
+            val calendar = Calendar.getInstance()
 
-        // Get last 30 days
-        for (i in 29 downTo 0) {
-            calendar.time = Date()
-            calendar.add(Calendar.DAY_OF_MONTH, -i)
+            // Get last 30 days
+            for (i in 29 downTo 0) {
+                calendar.time = Date()
+                calendar.add(Calendar.DAY_OF_MONTH, -i)
 
-            val startOfDay = Calendar.getInstance().apply {
-                time = calendar.time
-                set(Calendar.HOUR_OF_DAY, 0)
-                set(Calendar.MINUTE, 0)
-                set(Calendar.SECOND, 0)
-                set(Calendar.MILLISECOND, 0)
-            }.time
+                val startOfDay = Calendar.getInstance().apply {
+                    time = calendar.time
+                    set(Calendar.HOUR_OF_DAY, 0)
+                    set(Calendar.MINUTE, 0)
+                    set(Calendar.SECOND, 0)
+                    set(Calendar.MILLISECOND, 0)
+                }.time
 
-            val endOfDay = Calendar.getInstance().apply {
-                time = calendar.time
-                set(Calendar.HOUR_OF_DAY, 23)
-                set(Calendar.MINUTE, 59)
-                set(Calendar.SECOND, 59)
-                set(Calendar.MILLISECOND, 999)
-            }.time
+                val endOfDay = Calendar.getInstance().apply {
+                    time = calendar.time
+                    set(Calendar.HOUR_OF_DAY, 23)
+                    set(Calendar.MINUTE, 59)
+                    set(Calendar.SECOND, 59)
+                    set(Calendar.MILLISECOND, 999)
+                }.time
 
-            val dayCalories = foodEntryDao.getTotalCaloriesForDateRange(startOfDay, endOfDay) ?: 0
-            monthCalories.add(dayCalories)
+                val dayCalories = try {
+                    foodEntryDao.getTotalCaloriesForDateRange(startOfDay, endOfDay) ?: 0
+                } catch (e: Exception) {
+                    0
+                }
+                monthCalories.add(dayCalories)
+            }
+
+            return@withContext monthCalories
+        } catch (e: Exception) {
+            // Return list of zeros if there's an error
+            return@withContext List(30) { 0 }
         }
+    }
 
-        return monthCalories
+    /**
+     * Get today's total calories
+     */
+    suspend fun getTodayCalories(): Int = withContext(Dispatchers.IO) {
+        try {
+            val calendar = Calendar.getInstance()
+
+            // Start of today
+            calendar.set(Calendar.HOUR_OF_DAY, 0)
+            calendar.set(Calendar.MINUTE, 0)
+            calendar.set(Calendar.SECOND, 0)
+            calendar.set(Calendar.MILLISECOND, 0)
+            val todayStart = calendar.time
+
+            // End of today
+            calendar.set(Calendar.HOUR_OF_DAY, 23)
+            calendar.set(Calendar.MINUTE, 59)
+            calendar.set(Calendar.SECOND, 59)
+            calendar.set(Calendar.MILLISECOND, 999)
+            val todayEnd = calendar.time
+
+            return@withContext foodEntryDao.getTotalCaloriesForDateRange(todayStart, todayEnd) ?: 0
+        } catch (e: Exception) {
+            0
+        }
+    }
+
+    /**
+     * Get average calories for a date range
+     */
+    suspend fun getAverageCalories(startDate: Date, endDate: Date): Double = withContext(Dispatchers.IO) {
+        try {
+            val entries = foodEntryDao.getFoodEntriesByDateRange(startDate, endDate)
+            if (entries.isEmpty()) return@withContext 0.0
+
+            // Calculate days between dates
+            val daysDiff = ((endDate.time - startDate.time) / (1000 * 60 * 60 * 24)).toInt() + 1
+            val totalCalories = entries.sumOf { it.calories }
+
+            return@withContext totalCalories.toDouble() / daysDiff
+        } catch (e: Exception) {
+            0.0
+        }
     }
 
     suspend fun updateCalorieGoal(newGoal: Int) {

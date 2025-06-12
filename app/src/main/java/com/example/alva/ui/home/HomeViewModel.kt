@@ -108,7 +108,7 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
 
     fun getWeeklyCalories(): List<Int> {
         // This should also be made suspend, but for now return empty list
-        // You can call this from a coroutine in your fragment/activity
+        // this can be called from a coroutine in my fragment/activity
         return emptyList()
     }
 
@@ -125,7 +125,7 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
 
     fun getMonthlyCalories(): List<Int> {
         // This should also be made suspend, but for now return empty list
-        // You can call this from a coroutine in your fragment/activity
+        // this can be called from a coroutine in my fragment/activity
         return emptyList()
     }
 

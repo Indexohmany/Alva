@@ -1,5 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <paths xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- External cache for images -->
     <external-cache-path name="my_images" path="." />
+
+    <!-- Internal cache for images -->
     <cache-path name="my_cache_images" path="." />
+
+    <!-- External files directory for export data and camera pictures -->
+    <external-files-path name="external_app_files" path="." />
+
+    <!-- Pictures directory within app's external files (for camera) -->
+    <external-files-path name="pictures" path="Pictures/" />
+
+    <!-- Internal files directory for profile pictures -->
+    <files-path name="internal_files" path="." />
+
+    <!-- Internal files/images directory for profile pictures -->
+    <files-path name="profile_images" path="images/" />
+
+    <!-- External storage directory -->
+    <external-path name="external_files" path="." />
 </paths>

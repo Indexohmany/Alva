@@ -9,24 +9,64 @@
         android:id="@+id/navigation_home"
         android:name="com.example.alva.ui.home.HomeFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_camera"
+            app:destination="@id/navigation_camera" />
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_profile"
+            app:destination="@id/navigation_profile" />
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_ai_assistant"
+            app:destination="@id/navigation_ai_assistant" />
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_profile2"
+            app:destination="@id/navigation_profile" />
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_profile3"
+            app:destination="@id/navigation_profile" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_camera"
         android:name="com.example.alva.ui.camera.CameraFragment"
         android:label="@string/title_camera"
-        tools:layout="@layout/fragment_camera" />
+        tools:layout="@layout/fragment_camera" >
+        <action
+            android:id="@+id/action_navigation_camera_to_navigation_home"
+            app:destination="@id/navigation_home" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_ai_assistant"
         android:name="com.example.alva.ui.aiassistant.AIAssistantFragment"
         android:label="@string/title_ai_assistant"
-        tools:layout="@layout/fragment_ai_assistant" />
+        tools:layout="@layout/fragment_ai_assistant" >
+        <action
+            android:id="@+id/action_navigation_ai_assistant_to_navigation_home"
+            app:destination="@id/navigation_home" />
+        <action
+            android:id="@+id/action_navigation_ai_assistant_to_navigation_camera"
+            app:destination="@id/navigation_camera" />
+        <action
+            android:id="@+id/action_navigation_ai_assistant_to_navigation_profile"
+            app:destination="@id/navigation_profile" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_profile"
         android:name="com.example.alva.ui.profile.ProfileFragment"
         android:label="@string/title_profile"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_navigation_profile_to_navigation_camera"
+            app:destination="@id/navigation_camera" />
+        <action
+            android:id="@+id/action_navigation_profile_to_navigation_home"
+            app:destination="@id/navigation_home" />
+        <action
+            android:id="@+id/action_navigation_profile_to_navigation_ai_assistant"
+            app:destination="@id/navigation_ai_assistant" />
+    </fragment>
 
 </navigation>

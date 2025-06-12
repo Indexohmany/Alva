@@ -1,4 +1,4 @@
-<?xm version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -11,184 +11,84 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="24dp"
+        android:padding="16dp"
         android:clipToPadding="false">
 
-        <!-- Profile Header -->
+        <!-- Profile Header Card -->
         <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardProfile"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="28dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginStart="4dp"
-            android:layout_marginEnd="4dp"
-            app:cardCornerRadius="12dp"
-            app:cardElevation="6dp">
+            android:layout_marginBottom="16dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="4dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="24dp"
+                android:padding="20dp"
                 android:gravity="center_horizontal">
 
-                <com.google.android.material.imageview.ShapeableImageView
-                    android:id="@+id/image_view_profile"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    android:layout_marginBottom="16dp"
-                    android:background="@color/primary_color"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/ic_profile"
-                    app:shapeAppearanceOverlay="@style/CircularImageView"
-                    tools:src="@drawable/ic_profile" />
+                <!-- Profile Picture with Edit Button -->
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp">
 
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/imageViewProfile"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:background="@color/primary_color"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/ic_profile"
+                        app:shapeAppearanceOverlay="@style/CircularImageView"
+                        tools:src="@drawable/ic_profile" />
+
+                    <com.google.android.material.floatingactionbutton.FloatingActionButton
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:layout_gravity="bottom|end"
+                        android:layout_marginEnd="4dp"
+                        android:layout_marginBottom="4dp"
+                        android:src="@drawable/ic_camera_24"
+                        app:fabCustomSize="32dp"
+                        app:maxImageSize="16dp"
+                        app:backgroundTint="@color/primary_color" />
+
+                </FrameLayout>
+
+                <!-- User Name and Email -->
                 <TextView
-                    android:id="@+id/text_view_user_name"
+                    android:id="@+id/textViewUserName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="User Name"
-                    android:textSize="20sp"
+                    android:textSize="24sp"
                     android:textStyle="bold"
                     android:textColor="@color/primary_text"
-                    tools:text="John Doe" />
+                    tools:text="User" />
 
                 <TextView
-                    android:id="@+id/text_view_user_email"
+                    android:id="@+id/textViewUserEmail"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="user@example.com"
                     android:textSize="14sp"
                     android:textColor="@color/secondary_text"
-                    android:layout_marginTop="8dp"
-                    tools:text="john.doe@email.com" />
-
-            </LinearLayout>
-
-        </com.google.android.material.card.MaterialCardView>
-
-        <!-- Personal Information -->
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="28dp"
-            android:layout_marginStart="4dp"
-            android:layout_marginEnd="4dp"
-            app:cardCornerRadius="12dp"
-            app:cardElevation="6dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="24dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Personal Information"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:textColor="@color/primary_text"
-                    android:layout_marginBottom="20dp" />
-
-                <!-- Name -->
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
                     android:layout_marginBottom="16dp"
-                    android:hint="Name">
+                    tools:text="user@example.com" />
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/edit_text_name"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="textPersonName"
-                        tools:text="John Doe" />
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <!-- Email -->
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="16dp"
-                    android:hint="Email">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/edit_text_email"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="textEmailAddress"
-                        tools:text="john.doe@email.com" />
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <!-- Age, Height, Weight Row -->
+                <!-- User Stats Display -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:layout_marginBottom="20dp">
+                    android:gravity="center">
 
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:layout_marginEnd="12dp"
-                        android:hint="Age">
-
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/edit_text_age"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:inputType="number"
-                            tools:text="25" />
-
-                    </com.google.android.material.textfield.TextInputLayout>
-
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:layout_marginHorizontal="6dp"
-                        android:hint="Height (cm)">
-
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/edit_text_height"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:inputType="numberDecimal"
-                            tools:text="185" />
-
-                    </com.google.android.material.textfield.TextInputLayout>
-
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:layout_marginStart="12dp"
-                        android:hint="Weight (kg)">
-
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/edit_text_weight"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:inputType="numberDecimal"
-                            tools:text="88" />
-
-                    </com.google.android.material.textfield.TextInputLayout>
-
-                </LinearLayout>
-
-                <!-- Display Info -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="12dp"
-                    android:layout_marginBottom="20dp">
-
+                    <!-- Age -->
                     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -197,14 +97,14 @@
                         android:gravity="center">
 
                         <TextView
-                            android:id="@+id/text_view_age"
+                            android:id="@+id/textViewAge"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="25 years"
-                            android:textSize="16sp"
+                            android:text="25"
+                            android:textSize="20sp"
                             android:textStyle="bold"
                             android:textColor="@color/primary_text"
-                            tools:text="25 years" />
+                            tools:text="25" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -215,6 +115,7 @@
 
                     </LinearLayout>
 
+                    <!-- Height -->
                     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -223,14 +124,14 @@
                         android:gravity="center">
 
                         <TextView
-                            android:id="@+id/text_view_height"
+                            android:id="@+id/textViewHeight"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="185 cm"
-                            android:textSize="16sp"
+                            android:text="175 cm"
+                            android:textSize="20sp"
                             android:textStyle="bold"
                             android:textColor="@color/primary_text"
-                            tools:text="185 cm" />
+                            tools:text="-- cm" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -241,6 +142,7 @@
 
                     </LinearLayout>
 
+                    <!-- Weight -->
                     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -249,14 +151,14 @@
                         android:gravity="center">
 
                         <TextView
-                            android:id="@+id/text_view_weight"
+                            android:id="@+id/textViewWeight"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="70 kg"
-                            android:textSize="16sp"
+                            android:text="-- kg"
+                            android:textSize="20sp"
                             android:textStyle="bold"
                             android:textColor="@color/primary_text"
-                            tools:text="88 kg" />
+                            tools:text="-- kg" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -269,42 +171,143 @@
 
                 </LinearLayout>
 
+                <!-- Edit Profile Button -->
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/button_save_profile"
-                    android:layout_width="match_parent"
+                    android:id="@+id/buttonEditProfile"
+                    style="@style/Widget.Material3.Button.OutlinedButton"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Save Changes"
-                    android:textSize="16sp"
-                    android:icon="@drawable/ic_save_24" />
+                    android:layout_marginTop="16dp"
+                    android:text="Edit Profile"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:icon="@drawable/ic_edit_24" />
 
             </LinearLayout>
 
         </com.google.android.material.card.MaterialCardView>
 
-        <!-- Goals & Settings -->
+        <!-- BMI and Health Info Card -->
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="28dp"
-            android:layout_marginStart="4dp"
-            android:layout_marginEnd="4dp"
-            app:cardCornerRadius="12dp"
-            app:cardElevation="6dp">
+            android:layout_marginBottom="16dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="4dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="24dp">
+                android:padding="20dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Goals &amp; Settings"
+                    android:text="Health Information"
                     android:textSize="18sp"
                     android:textStyle="bold"
                     android:textColor="@color/primary_text"
-                    android:layout_marginBottom="20dp" />
+                    android:layout_marginBottom="16dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <!-- BMI Info -->
+                    <LinearLayout
+                        android:id="@+id/layoutBmiInfo"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:padding="16dp"
+                        android:background="?attr/selectableItemBackground">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="BMI"
+                            android:textSize="14sp"
+                            android:textColor="@color/secondary_text" />
+
+                        <TextView
+                            android:id="@+id/textViewBmi"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="22.9"
+                            android:textSize="24sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/primary_text"
+                            tools:text="22.9" />
+
+                        <TextView
+                            android:id="@+id/textViewBmiCategory"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Normal"
+                            android:textSize="12sp"
+                            android:textColor="@color/success_color"
+                            tools:text="Normal" />
+
+                    </LinearLayout>
+
+                    <!-- Gender -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Gender"
+                            android:textSize="14sp"
+                            android:textColor="@color/secondary_text" />
+
+                        <TextView
+                            android:id="@+id/textViewGender"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Male"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/primary_text"
+                            tools:text="Male" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Goals & Settings Card -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="4dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Goals &amp; Activity"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/primary_text"
+                    android:layout_marginBottom="16dp" />
 
                 <!-- Calorie Goal -->
                 <LinearLayout
@@ -312,7 +315,7 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:gravity="center_vertical"
-                    android:layout_marginBottom="16dp">
+                    android:layout_marginBottom="12dp">
 
                     <LinearLayout
                         android:layout_width="0dp"
@@ -328,7 +331,7 @@
                             android:textColor="@color/primary_text" />
 
                         <TextView
-                            android:id="@+id/text_view_calorie_goal"
+                            android:id="@+id/textViewCalorieGoal"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="2000 cal/day"
@@ -336,24 +339,51 @@
                             android:textColor="@color/secondary_text"
                             tools:text="2000 cal/day" />
 
+                        <TextView
+                            android:id="@+id/textViewRecommendedCalories"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Recommended: 2200 cal/day"
+                            android:textSize="12sp"
+                            android:textColor="@color/secondary_text"
+                            android:layout_marginTop="2dp"
+                            tools:text="Recommended: 2200 cal/day" />
+
+                        <TextView
+                            android:id="@+id/textViewGoalDifference"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="-200 below recommended"
+                            android:textSize="12sp"
+                            android:textStyle="italic"
+                            android:textColor="@color/warning_color"
+                            android:layout_marginTop="2dp"
+                            android:visibility="gone"
+                            tools:text="-200 below recommended"
+                            tools:visibility="visible" />
+
                     </LinearLayout>
 
                     <com.google.android.material.button.MaterialButton
-                        android:id="@+id/button_set_calorie_goal"
+                        android:id="@+id/buttonSetCalorieGoal"
+                        style="@style/Widget.Material3.Button.OutlinedButton"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Change"
-                        android:textSize="16sp"
-                        style="@style/Widget.Material3.Button.OutlinedButton" />
+                        android:textSize="14sp"
+                        android:textStyle="bold"/>
 
                 </LinearLayout>
 
                 <!-- Activity Level -->
                 <LinearLayout
+                    android:id="@+id/layoutActivityLevel"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:gravity="center_vertical">
+                    android:gravity="center_vertical"
+                    android:padding="12dp"
+                    android:background="?attr/selectableItemBackground">
 
                     <LinearLayout
                         android:layout_width="0dp"
@@ -369,7 +399,7 @@
                             android:textColor="@color/primary_text" />
 
                         <TextView
-                            android:id="@+id/text_view_activity_level"
+                            android:id="@+id/textViewActivityLevel"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Moderate"
@@ -391,63 +421,87 @@
 
         </com.google.android.material.card.MaterialCardView>
 
-        <!-- Statistics -->
+        <!-- Statistics Cards -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginBottom="28dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp">
+            android:layout_marginBottom="16dp">
 
             <!-- Weekly Stats -->
             <com.google.android.material.card.MaterialCardView
-                android:id="@+id/card_weekly_stats"
+                android:id="@+id/cardWeeklyStats"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:layout_marginTop="4dp"
-                android:layout_marginBottom="4dp"
-                android:layout_marginStart="4dp"
-                android:layout_marginEnd="12dp"
-                app:cardCornerRadius="12dp"
-                app:cardElevation="6dp">
+                android:layout_marginEnd="8dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="4dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="20dp"
-                    android:gravity="center">
+                    android:padding="16dp">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="This Week"
                         android:textSize="14sp"
+                        android:textStyle="bold"
                         android:textColor="@color/secondary_text"
                         android:layout_marginBottom="8dp" />
 
                     <TextView
-                        android:id="@+id/text_view_weekly_average"
+                        android:id="@+id/textViewWeeklyAverage"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="1850 cal/day"
-                        android:textSize="18sp"
+                        android:textSize="16sp"
                         android:textStyle="bold"
-                        android:textColor="@color/accent_color"
+                        android:textColor="@color/primary_text"
+                        android:layout_marginBottom="4dp"
                         tools:text="1850 cal/day" />
 
                     <TextView
-                        android:id="@+id/text_view_weekly_goal_achieved"
+                        android:id="@+id/textViewWeeklyGoalAchieved"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="5/7 days"
                         android:textSize="12sp"
                         android:textColor="@color/secondary_text"
-                        android:layout_marginTop="4dp"
+                        android:layout_marginBottom="8dp"
                         tools:text="5/7 days" />
+
+                    <ProgressBar
+                        android:id="@+id/progressBarWeekly"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="6dp"
+                        android:progress="71"
+                        android:layout_marginBottom="4dp"
+                        tools:progress="71" />
+
+                    <TextView
+                        android:id="@+id/textViewWeeklyProgress"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="71%"
+                        android:textSize="12sp"
+                        android:textColor="@color/secondary_text"
+                        android:layout_gravity="end"
+                        tools:text="71%" />
+
+                    <TextView
+                        android:id="@+id/textViewWeeklyTotal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="12,950 cal total"
+                        android:textSize="10sp"
+                        android:textColor="@color/secondary_text"
+                        android:layout_marginTop="4dp"
+                        tools:text="12,950 cal total" />
 
                 </LinearLayout>
 
@@ -455,51 +509,78 @@
 
             <!-- Monthly Stats -->
             <com.google.android.material.card.MaterialCardView
-                android:id="@+id/card_monthly_stats"
+                android:id="@+id/cardMonthlyStats"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:layout_marginTop="4dp"
-                android:layout_marginBottom="4dp"
-                android:layout_marginStart="12dp"
-                android:layout_marginEnd="4dp"
-                app:cardCornerRadius="12dp"
-                app:cardElevation="6dp">
+                android:layout_marginStart="8dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="4dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="20dp"
-                    android:gravity="center">
+                    android:padding="16dp">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="This Month"
                         android:textSize="14sp"
+                        android:textStyle="bold"
                         android:textColor="@color/secondary_text"
                         android:layout_marginBottom="8dp" />
 
                     <TextView
-                        android:id="@+id/text_view_monthly_average"
+                        android:id="@+id/textViewMonthlyAverage"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="1920 cal/day"
-                        android:textSize="18sp"
+                        android:textSize="16sp"
                         android:textStyle="bold"
-                        android:textColor="@color/accent_color"
+                        android:textColor="@color/primary_text"
+                        android:layout_marginBottom="4dp"
                         tools:text="1920 cal/day" />
 
                     <TextView
-                        android:id="@+id/text_view_monthly_goal_achieved"
+                        android:id="@+id/textViewMonthlyGoalAchieved"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="22/30 days"
                         android:textSize="12sp"
                         android:textColor="@color/secondary_text"
-                        android:layout_marginTop="4dp"
+                        android:layout_marginBottom="8dp"
                         tools:text="22/30 days" />
+
+                    <ProgressBar
+                        android:id="@+id/progressBarMonthly"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="6dp"
+                        android:progress="73"
+                        android:layout_marginBottom="4dp"
+                        tools:progress="73" />
+
+                    <TextView
+                        android:id="@+id/textViewMonthlyProgress"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="73%"
+                        android:textSize="12sp"
+                        android:textColor="@color/secondary_text"
+                        android:layout_gravity="end"
+                        tools:text="73%" />
+
+                    <TextView
+                        android:id="@+id/textViewMonthlyTotal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="57,600 cal total"
+                        android:textSize="10sp"
+                        android:textColor="@color/secondary_text"
+                        android:layout_marginTop="4dp"
+                        tools:text="57,600 cal total" />
 
                 </LinearLayout>
 
@@ -507,21 +588,19 @@
 
         </LinearLayout>
 
-        <!-- Settings Options -->
+        <!-- Settings Card -->
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="28dp"
-            android:layout_marginStart="4dp"
-            android:layout_marginEnd="4dp"
-            app:cardCornerRadius="12dp"
-            app:cardElevation="6dp">
+            android:layout_marginBottom="16dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="4dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="24dp">
+                android:padding="20dp">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -530,18 +609,17 @@
                     android:textSize="18sp"
                     android:textStyle="bold"
                     android:textColor="@color/primary_text"
-                    android:layout_marginBottom="20dp" />
+                    android:layout_marginBottom="16dp" />
 
                 <!-- Notification Settings -->
                 <LinearLayout
-                    android:id="@+id/text_view_notification_settings"
+                    android:id="@+id/textViewNotificationSettings"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:gravity="center_vertical"
-                    android:padding="16dp"
-                    android:background="?attr/selectableItemBackground"
-                    android:layout_marginBottom="8dp">
+                    android:padding="12dp"
+                    android:background="?attr/selectableItemBackground">
 
                     <ImageView
                         android:layout_width="24dp"
@@ -568,14 +646,13 @@
 
                 <!-- Data Export -->
                 <LinearLayout
-                    android:id="@+id/text_view_data_export"
+                    android:id="@+id/textViewDataExport"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:gravity="center_vertical"
-                    android:padding="16dp"
-                    android:background="?attr/selectableItemBackground"
-                    android:layout_marginBottom="8dp">
+                    android:padding="12dp"
+                    android:background="?attr/selectableItemBackground">
 
                     <ImageView
                         android:layout_width="24dp"
@@ -600,16 +677,48 @@
 
                 </LinearLayout>
 
-                <!-- About -->
+                <!-- Import Data -->
                 <LinearLayout
-                    android:id="@+id/text_view_about"
+                    android:id="@+id/textViewDataImport"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:gravity="center_vertical"
-                    android:padding="16dp"
-                    android:background="?attr/selectableItemBackground"
-                    android:layout_marginBottom="8dp">
+                    android:padding="12dp"
+                    android:background="?attr/selectableItemBackground">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_upload_24"
+                        android:layout_marginEnd="16dp"
+                        android:contentDescription="Import data" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Import Data"
+                        android:textSize="16sp"
+                        android:textColor="@color/primary_text" />
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_chevron_right_24"
+                        android:contentDescription="Import data" />
+
+                </LinearLayout>
+
+                <!-- About -->
+                <LinearLayout
+                    android:id="@+id/textViewAbout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:padding="12dp"
+                    android:background="?attr/selectableItemBackground">
 
                     <ImageView
                         android:layout_width="24dp"
@@ -636,12 +745,12 @@
 
                 <!-- Logout -->
                 <LinearLayout
-                    android:id="@+id/text_view_logout"
+                    android:id="@+id/textViewLogout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:gravity="center_vertical"
-                    android:padding="16dp"
+                    android:padding="12dp"
                     android:background="?attr/selectableItemBackground">
 
                     <ImageView
@@ -675,7 +784,7 @@
 
         <!-- Loading Indicator -->
         <ProgressBar
-            android:id="@+id/progress_bar"
+            android:id="@+id/progressBar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"

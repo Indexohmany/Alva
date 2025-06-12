@@ -23,6 +23,9 @@
     <color name="text_on_primary">#000000</color>
     <color name="text_hint">#80FFFFFF</color>
 
+    <!-- MISSING: Added text_secondary for dark mode -->
+    <color name="text_secondary">#B3FFFFFF</color>
+
     <!-- Background Colors - DARK THEME -->
     <color name="background_color">#121212</color>
     <color name="surface_color">#1E1E1E</color>
@@ -48,6 +51,12 @@
     <color name="error">#CF6679</color>
     <color name="info_color">#64B5F6</color>
 
+    <!-- MISSING: Background Colors - Adjusted for dark theme -->
+    <color name="warning_background">#3E2723</color>
+    <color name="warning_text">#FFB74D</color>
+    <color name="surface_variant">#2C2C2C</color>
+    <color name="outline_color">#404040</color>
+
     <!-- Overlay Colors -->
     <color name="overlay_dark">#80000000</color>
     <color name="overlay_light">#40FFFFFF</color>
@@ -60,4 +69,14 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- BMI Categories  -->
+    <color name="bmi_severely_underweight">#FF5252</color>
+    <color name="bmi_underweight">#FFEB3B</color>
+    <color name="bmi_normal">#81C784</color>
+    <color name="bmi_slightly_overweight">#FFB74D</color>
+    <color name="bmi_overweight">#FF8A65</color>
+    <color name="bmi_moderately_obese">#FF5252</color>
+    <color name="bmi_obese">#FF1744</color>
+
 </resources>

@@ -1,22 +1,184 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="24dp">
 
-    <com.google.android.material.textfield.TextInputLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Daily Calorie Goal">
+        android:orientation="vertical">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/editTextCalorieGoal"
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="number"
-            android:maxLength="5" />
+            android:text="Set Daily Calorie Goal"
+            android:textAppearance="@style/TextAppearance.Material3.HeadlineSmall"
+            android:layout_marginBottom="8dp" />
 
-    </com.google.android.material.textfield.TextInputLayout>
+        <TextView
+            android:id="@+id/textViewRecommendedGoal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Recommended: 2200 cal/day"
+            android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
+            android:textColor="@color/secondary_text"
+            android:layout_marginBottom="24dp" />
 
-</LinearLayout> 
+        <!-- Calorie Goal Input -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayoutCalorieGoal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:hint="Daily Calorie Goal">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextCalorieGoal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:maxLength="5" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Slider -->
+        <com.google.android.material.slider.Slider
+            android:id="@+id/sliderCalorieGoal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:valueFrom="1000"
+            android:valueTo="5000"
+            android:stepSize="50"
+            android:value="2000" />
+
+        <!-- Goal Comparison -->
+        <TextView
+            android:id="@+id/textViewGoalComparison"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Matches recommended goal"
+            android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
+
+        <TextView
+            android:id="@+id/textViewWeeklyChange"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Maintain current weight"
+            android:textAppearance="@style/TextAppearance.Material3.BodySmall"
+            android:textColor="@color/secondary_text"
+            android:layout_marginBottom="24dp" />
+
+        <!-- Quick Preset Buttons -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Quick Presets"
+            android:textAppearance="@style/TextAppearance.Material3.BodyLarge"
+            android:textStyle="bold"
+            android:layout_marginBottom="12dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginBottom="16dp">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/buttonWeightLoss"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:text="Weight Loss (-500 cal)"
+                android:icon="@drawable/ic_trending_down_24" />
+
+            <TextView
+                android:id="@+id/textViewWeightLossDesc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Weight Loss: 1700 cal/day (1 lb/week loss)"
+                android:textAppearance="@style/TextAppearance.Material3.BodySmall"
+                android:textColor="@color/secondary_text"
+                android:layout_marginBottom="12dp"
+                android:layout_marginStart="16dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/buttonMaintenance"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:text="Maintenance"
+                android:icon="@drawable/ic_trending_flat_24" />
+
+            <TextView
+                android:id="@+id/textViewMaintenanceDesc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Maintenance: 2200 cal/day (maintain current weight)"
+                android:textAppearance="@style/TextAppearance.Material3.BodySmall"
+                android:textColor="@color/secondary_text"
+                android:layout_marginBottom="12dp"
+                android:layout_marginStart="16dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/buttonWeightGain"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:text="Weight Gain (+500 cal)"
+                android:icon="@drawable/ic_trending_up_24" />
+
+            <TextView
+                android:id="@+id/textViewWeightGainDesc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Weight Gain: 2700 cal/day (1 lb/week gain)"
+                android:textAppearance="@style/TextAppearance.Material3.BodySmall"
+                android:textColor="@color/secondary_text"
+                android:layout_marginBottom="12dp"
+                android:layout_marginStart="16dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/buttonUseRecommended"
+                style="@style/Widget.Material3.Button.TextButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Use Recommended Goal"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <!-- Action Buttons -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="end"
+            android:layout_marginTop="16dp">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/buttonCancel"
+                style="@style/Widget.Material3.Button.TextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:text="Cancel" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/buttonSave"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Save Goal" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>

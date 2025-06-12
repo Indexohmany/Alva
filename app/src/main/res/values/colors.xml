@@ -23,6 +23,9 @@
     <color name="text_on_primary">#FFFFFF</color>
     <color name="text_hint">#61000000</color>
 
+    <color name="text_secondary">#757575</color>
+
+
     <!-- Background Colors - ADAPTIVE -->
     <color name="background_color">#FAFAFA</color>
     <color name="surface_color">#FFFFFFFF</color>
@@ -48,6 +51,12 @@
     <color name="error">#FFB00020</color>
     <color name="info_color">#2196F3</color>
 
+    <!-- Background Colors -->
+    <color name="warning_background">#FFF8E1</color>
+    <color name="warning_text">#E65100</color>
+    <color name="surface_variant">#F5F5F5</color>
+    <color name="outline_color">#E0E0E0</color>
+
     <!-- Overlay Colors -->
     <color name="overlay_dark">#80000000</color>
     <color name="overlay_light">#40FFFFFF</color>
@@ -60,4 +69,17 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- BMI Categories -->
+    <color name="bmi_severely_underweight">#F44336</color>
+    <color name="bmi_underweight">#CCFF00</color>
+    <color name="bmi_normal">#4CAF50</color>
+    <color name="bmi_slightly_overweight">#FFA726</color>
+    <color name="bmi_overweight">#FF5722</color>
+    <color name="bmi_moderately_obese">#F44336</color>
+    <color name="bmi_obese">#FF0000</color>
+
+    <color name="warning_light">#FFF3CD</color>
+    <color name="warning_dark">#856404</color>
+
 </resources>

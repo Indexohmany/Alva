@@ -1,38 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!--Night mode theme-->
-    <!-- Base application theme - DARK MODE -->
-    <style name="Theme.Alva" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
-        <!-- Primary brand color. -->
+
+    <!-- Dark Theme -->
+    <style name="Base.Theme.Alva" parent="Theme.Material3.DayNight">
+        <!-- Primary brand color -->
         <item name="colorPrimary">@color/primary_color</item>
         <item name="colorPrimaryVariant">@color/primary_variant</item>
-        <item name="colorOnPrimary">@color/black</item>
+        <item name="colorOnPrimary">@color/text_on_primary</item>
 
-        <!-- Secondary brand color. -->
+        <!-- Secondary brand color -->
         <item name="colorSecondary">@color/secondary_color</item>
         <item name="colorSecondaryVariant">@color/secondary_variant</item>
-        <item name="colorOnSecondary">@color/black</item>
+        <item name="colorOnSecondary">@color/text_on_primary</item>
 
-        <!-- Status bar color. -->
-        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <!-- Status bar color -->
+        <item name="android:statusBarColor">@color/primary_color</item>
 
-        <!-- Background and Surface colors - DARK THEME -->
-        <item name="android:colorBackground">@color/background</item>
-        <item name="colorSurface">@color/surface</item>
-
-        <!-- Text colors - DARK THEME -->
-        <item name="colorOnBackground">@color/primary_text</item>
+        <!-- Background colors -->
+        <item name="android:colorBackground">@color/background_color</item>
+        <item name="colorSurface">@color/surface_color</item>
         <item name="colorOnSurface">@color/primary_text</item>
 
         <!-- Error colors -->
-        <item name="colorError">@color/error</item>
-        <item name="colorOnError">@color/black</item>
-
-        <!-- Custom attributes for your app - DARK THEME -->
-        <item name="android:textColorPrimary">@color/primary_text</item>
-        <item name="android:textColorSecondary">@color/secondary_text</item>
-        <item name="android:textColorHint">@color/text_hint</item>
+        <item name="colorError">@color/error_color</item>
+        <item name="colorOnError">@color/white</item>
 
         <!-- Window background -->
         <item name="android:windowBackground">@color/background_color</item>
+
+        <!-- Navigation bar -->
+        <item name="android:navigationBarColor">@color/background_color</item>
+
+        <!-- Text colors -->
+        <item name="android:textColorPrimary">@color/primary_text</item>
+        <item name="android:textColorSecondary">@color/secondary_text</item>
+        <item name="android:textColorHint">@color/text_hint</item>
     </style>
+
+    <!-- Main App Theme -->
+    <style name="Theme.Alva" parent="Base.Theme.Alva">
+        <!-- Customize your theme here -->
+
+        <!-- Action Bar / Toolbar styling -->
+        <item name="colorPrimaryDark">@color/primary_dark</item>
+
+        <!-- FAB styling -->
+        <item name="floatingActionButtonStyle">@style/Widget.App.FloatingActionButton</item>
+
+        <!-- Card styling -->
+        <item name="materialCardViewStyle">@style/Widget.App.CardView</item>
+
+        <!-- Button styling -->
+        <item name="materialButtonStyle">@style/Widget.App.Button</item>
+    </style>
+
+    <!-- Custom Widget Styles -->
+
+    <!-- Custom FAB Style -->
+    <style name="Widget.App.FloatingActionButton" parent="Widget.Material3.FloatingActionButton.Primary">
+        <item name="backgroundTint">@color/accent_color</item>
+        <item name="tint">@color/white</item>
+    </style>
+
+    <!-- Custom Card Style -->
+    <style name="Widget.App.CardView" parent="Widget.Material3.CardView.Elevated">
+        <item name="cardCornerRadius">12dp</item>
+        <item name="cardElevation">4dp</item>
+        <item name="cardBackgroundColor">@color/surface_color</item>
+    </style>
+
+    <!-- Custom Button Style -->
+    <style name="Widget.App.Button" parent="Widget.Material3.Button">
+        <item name="backgroundTint">@color/primary_color</item>
+        <item name="android:textColor">@color/text_on_primary</item>
+    </style>
+
+    <!-- Circular Image View Style -->
+    <style name="CircularImageView">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+
+    <!-- Text Appearance Styles -->
+
+    <!-- Profile Name Text Style -->
+    <style name="TextAppearance.App.ProfileName" parent="TextAppearance.Material3.HeadlineSmall">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/primary_text</item>
+        <item name="fontFamily">sans-serif-medium</item>
+    </style>
+
+    <!-- BMI Value Text Style -->
+    <style name="TextAppearance.App.BmiValue" parent="TextAppearance.Material3.HeadlineMedium">
+        <item name="android:textStyle">bold</item>
+        <item name="fontFamily">sans-serif-light</item>
+    </style>
+
+    <!-- Section Header Text Style -->
+    <style name="TextAppearance.App.SectionHeader" parent="TextAppearance.Material3.TitleMedium">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/primary_text</item>
+        <item name="fontFamily">sans-serif-medium</item>
+    </style>
+
+    <!-- Stats Number Text Style -->
+    <style name="TextAppearance.App.StatsNumber" parent="TextAppearance.Material3.TitleLarge">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/primary_text</item>
+        <item name="fontFamily">sans-serif-condensed</item>
+    </style>
+
 </resources>
