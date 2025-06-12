@@ -120,7 +120,6 @@ LiveData Observers ← State Management ← Data Processing
 
 ## Screenshots
 
-*Screenshots will be added here showcasing:*
 
 <table>
 <tr>
