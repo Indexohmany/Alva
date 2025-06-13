@@ -154,7 +154,7 @@ LiveData Observers ← State Management ← Data Processing
 
 ### Core Technologies
 - **Language**: Kotlin 2.0+
-- **Platform**: Android SDK (API 24-35)
+- **Platform**: Android SDK (API 24-34)
 - **Architecture**: MVVM with Repository Pattern
 - **Build System**: Gradle with Kotlin DSL
 
@@ -185,7 +185,7 @@ LiveData Observers ← State Management ← Data Processing
   - OpenFoodFacts for product nutritional data
 
 ### Development Tools
-- **Android Studio Arctic Fox+**
+- **Android Studio Ladybug+**
 - **Gradle 8.11.1**
 - **ProGuard/R8** for code optimization
 
